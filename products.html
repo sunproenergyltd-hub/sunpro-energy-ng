@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partnership & Bulk Projects | SunPro Energy</title>
+<meta name="description" content="Partner with SunPro Energy for large solar projects — estates, schools, hospitals and offices. We deliver installation and procure materials at scale.">
+<link rel="canonical" href="https://sunproenergyltd.com/pages/partnership.html">
+<link rel="icon" href="../assets/logo.jpg">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="../index.html" class="brand">
+      <img src="../assets/logo.jpg" alt="SunPro Energy Ltd. logo">
+      <span class="brand-name">SunPro<span>Energy Ltd.</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="questionnaire.html">Get a Free Quote</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="partnership.html">Partnership</a>
+      <a href="about.html">About &amp; Contact</a>
+    </nav>
+    <div class="nav-cta"><a href="questionnaire.html" class="btn btn-primary btn-sm">Get Free Quote</a></div>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">HOME / PARTNERSHIP</div>
+    <h1>Big project? We deliver and procure — end to end.</h1>
+    <p>Estates, schools, hospitals, hotels and offices. We manage procurement, delivery and installation of complete solar projects, and we work with installers, developers and cooperatives on an ongoing basis.</p>
+  </div>
+</div>
+
+<section class="bg-paper">
+  <div class="container">
+    <div class="grid grid-3" style="margin-bottom:56px;">
+      <div class="card"><div class="icon">📦</div><h3>Materials procurement</h3><p>We source inverters, batteries and panels at scale — for your project or your own installation business — with reliable supply and pricing.</p></div>
+      <div class="card"><div class="icon">🏗️</div><h3>Full project delivery</h3><p>From load audit to commissioning, we run large installs for estates, schools, hospitals and commercial sites.</p></div>
+      <div class="card"><div class="icon">🧑‍🔧</div><h3>Installer network</h3><p>Independent installers and technicians can partner with us for stock, technical support and referred jobs.</p></div>
+    </div>
+
+    <div class="grid grid-2">
+      <div>
+        <h2>Who this is for</h2>
+        <ul style="display:flex;flex-direction:column;gap:14px;">
+          <li>🏘️ <b>Estate developers</b> — powering an entire estate or housing scheme</li>
+          <li>🏫 <b>Schools & hospitals</b> — reliable backup for critical equipment</li>
+          <li>🏢 <b>Corporates</b> — office blocks and commercial facilities</li>
+          <li>🧑‍🔧 <b>Installers & technicians</b> — looking for stock and referral partnerships</li>
+          <li>🌍 <b>Cooperatives / bulk buyers</b> — negotiated pricing on volume orders</li>
+        </ul>
+        <div class="card" style="margin-top:28px;">
+          <h3>Prefer to talk directly?</h3>
+          <p class="small">Our partnerships lead can walk you through pricing and timelines.</p>
+          <a data-wa-href data-wa-msg="Hello, I'd like to discuss a partnership / bulk project with SunPro Energy." href="#" class="btn btn-whatsapp btn-block">💬 Message on WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Tell us about the project</h3>
+        <form id="partnerForm">
+          <div class="field-row">
+            <div class="field"><label>Full name</label><input type="text" name="name" required></div>
+            <div class="field"><label>Organisation</label><input type="text" name="org"></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" required></div>
+            <div class="field"><label>Email</label><input type="email" name="email"></div>
+          </div>
+          <div class="field">
+            <label>Partnership type</label>
+            <select name="partnerType">
+              <option>Bulk material procurement</option>
+              <option>Full project delivery (estate/school/hospital/office)</option>
+              <option>Installer / technician partnership</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field"><label>Project details</label><textarea name="details" rows="4" placeholder="Scale, location, timeline, estimated budget..." required></textarea></div>
+          <button class="btn btn-primary btn-block" type="submit">Submit Partnership Request</button>
+        </form>
+        <div id="partnerDone" style="display:none;text-align:center;">
+          <h3>Thanks — request received ✅</h3>
+          <p class="small">Our partnerships team will reach out shortly.</p>
+          <a id="partnerWa" class="btn btn-whatsapp btn-block" href="#" target="_blank">💬 Continue on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span data-year></span> SunPro Energy Ltd. All rights reserved.</span>
+      <a href="../index.html">Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/config.js"></script>
+<script src="../js/lead-store.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  document.getElementById("partnerForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    const lead = { type: "Partnership", ...data };
+    LeadStore.save(lead);
+    e.target.style.display = "none";
+    document.getElementById("partnerDone").style.display = "block";
+    document.getElementById("partnerWa").href = leadToWhatsAppLink(lead, (window.SUNPRO_CONFIG||{}).phoneIntl);
+  });
+</script>
+</body>
+</html>

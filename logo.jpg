@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maintenance & Support | SunPro Energy</title>
+<meta name="description" content="Book a solar system maintenance call with a SunPro Energy specialist by phone or WhatsApp — servicing for inverters, batteries and panels across Nigeria.">
+<link rel="canonical" href="https://sunproenergyltd.com/pages/maintenance.html">
+<link rel="icon" href="../assets/logo.jpg">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="../index.html" class="brand">
+      <img src="../assets/logo.jpg" alt="SunPro Energy Ltd. logo">
+      <span class="brand-name">SunPro<span>Energy Ltd.</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="questionnaire.html">Get a Free Quote</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="partnership.html">Partnership</a>
+      <a href="about.html">About &amp; Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="questionnaire.html" class="btn btn-primary btn-sm">Get Free Quote</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">HOME / MAINTENANCE</div>
+    <h1>Already have a system? Let's keep it running.</h1>
+    <p>Battery not holding charge, inverter beeping, panel output dropped, or just due for a check-up — book a specialist and we'll sort it out over a call, WhatsApp, or an on-site visit.</p>
+  </div>
+</div>
+
+<section class="bg-paper">
+  <div class="container">
+    <div class="grid grid-3" style="margin-bottom:50px;">
+      <div class="card"><div class="icon">🔍</div><h3>Diagnosis call</h3><p>Describe the issue and our specialist helps you troubleshoot over phone or WhatsApp — often solved without a visit.</p></div>
+      <div class="card"><div class="icon">🧰</div><h3>On-site servicing</h3><p>Battery health checks, panel cleaning & inspection, wiring and connection servicing across Port Harcourt & beyond.</p></div>
+      <div class="card"><div class="icon">🔄</div><h3>Upgrades & swaps</h3><p>Outgrown your current setup? We help you upgrade to a bigger battery, inverter or extra panels.</p></div>
+    </div>
+
+    <div class="grid grid-2">
+      <div>
+        <h2>What to expect</h2>
+        <div class="steps" style="grid-template-columns:1fr;gap:20px;">
+          <div class="step"><h3>Tell us the issue</h3><p>Fill the form or message us directly — brand, system age and symptoms help us prepare.</p></div>
+          <div class="step"><h3>We assign a specialist</h3><p>You'll be connected with a technician by phone or WhatsApp, usually the same day.</p></div>
+          <div class="step"><h3>Fix or visit</h3><p>Many issues are resolved on the call. If a visit is needed, we schedule one that works for you.</p></div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <h3>Book a maintenance call</h3>
+        <form id="maintForm">
+          <div class="field"><label>Full name</label><input type="text" name="name" required></div>
+          <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" required></div>
+          <div class="field-row">
+            <div class="field">
+              <label>System brand</label>
+              <select name="brand"><option>itel</option><option>LG</option><option>Cworth</option><option>Other / Not sure</option></select>
+            </div>
+            <div class="field">
+              <label>How urgent?</label>
+              <select name="urgency"><option>Today if possible</option><option>This week</option><option>Just a routine check-up</option></select>
+            </div>
+          </div>
+          <div class="field"><label>Describe the issue</label><textarea name="issue" rows="4" required placeholder="e.g. Inverter beeps and switches off when AC comes on"></textarea></div>
+          <div class="field"><label>Location / address</label><input type="text" name="area" placeholder="e.g. Rumuola, Port Harcourt" required></div>
+          <button class="btn btn-primary btn-block" type="submit">Assign Me a Specialist</button>
+        </form>
+        <div id="maintDone" style="display:none;text-align:center;">
+          <h3>Request received ✅</h3>
+          <p class="small">A specialist will reach out shortly. Prefer to talk now?</p>
+          <a id="maintWa" class="btn btn-whatsapp btn-block" href="#" target="_blank">💬 Continue on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span data-year></span> SunPro Energy Ltd. All rights reserved.</span>
+      <a href="../index.html">Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<div class="floating-actions">
+  <a class="fab fab-whatsapp" data-wa-href data-wa-msg="Hello, I need help with my solar system." href="#" aria-label="Chat on WhatsApp">💬</a>
+</div>
+
+<script src="../js/config.js"></script>
+<script src="../js/lead-store.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  document.getElementById("maintForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    const lead = { type: "Maintenance", ...data };
+    LeadStore.save(lead);
+    e.target.style.display = "none";
+    document.getElementById("maintDone").style.display = "block";
+    document.getElementById("maintWa").href = leadToWhatsAppLink(lead, (window.SUNPRO_CONFIG||{}).phoneIntl);
+  });
+</script>
+</body>
+</html>

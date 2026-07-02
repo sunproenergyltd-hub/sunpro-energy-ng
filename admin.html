@@ -1,0 +1,43 @@
+/* =========================================================
+   SUNPRO ENERGY — SITE CONFIG
+   Edit this file to update contact details or plug in real
+   backend services. No other file needs to change.
+   ========================================================= */
+const SUNPRO_CONFIG = {
+  businessName: "SunPro Energy Ltd.",
+  phoneDisplay: "0810 310 4270",
+  phoneIntl: "2348103104270",           // used for tel: and wa.me links — no + or leading 0
+  email: "info@sunproenergyltd.com",     // placeholder — update once a company inbox exists
+  address: "210 Ikwerre Road, Port Harcourt, Rivers State, Nigeria",
+  hours: "Mon – Sat, 8:00am – 6:00pm",
+
+  // ---- Lead delivery -------------------------------------------------
+  // Leads (quote requests, questionnaire answers, maintenance & partnership
+  // requests) are always saved locally so the Admin panel works immediately
+  // out of the box. To also receive them by email / in a shared Google
+  // Sheet from every visitor's device (not just this browser), set one of
+  // these to a real endpoint:
+  //
+  //  1) Formspree (easiest): create a free form at formspree.io, then set
+  //     formEndpoint to "https://formspree.io/f/xxxxxxx"
+  //  2) Google Sheets via Apps Script Web App: paste the deployed URL into
+  //     sheetsWebhook.
+  formEndpoint: "",        // e.g. "https://formspree.io/f/xxxxxxx"
+  sheetsWebhook: "",       // e.g. "https://script.google.com/macros/s/xxxx/exec"
+
+  // ---- Live chat -------------------------------------------------------
+  // The floating chat bubble on every page is a lightweight built-in
+  // FAQ + "hand off to WhatsApp" widget (works with zero setup). To use a
+  // full live-agent inbox instead, sign up free at tawk.to, grab your
+  // Property ID + Widget ID and paste them here — main.js will load the
+  // real Tawk.to widget automatically instead of the built-in one.
+  tawkPropertyId: "",      // e.g. "60f1a2b3c4d5e6f7a8b9c0d1"
+  tawkWidgetId: "",        // e.g. "1f5g6h7i8"
+
+  // ---- Admin ------------------------------------------------------------
+  // Simple client-side gate for the /admin.html demo dashboard. This is
+  // NOT secure for sensitive data — it only hides the page from casual
+  // visitors. Change this password, and see README.md for how to add
+  // real authentication before storing sensitive customer data long-term.
+  adminPassword: "sunpro2026"
+};

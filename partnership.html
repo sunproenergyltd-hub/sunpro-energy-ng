@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About & Contact | SunPro Energy Ltd.</title>
+<meta name="description" content="SunPro Energy Ltd. is based at 210 Ikwerre Road, Port Harcourt, Rivers State. Contact us for solar inverters, batteries, panels and installation across Nigeria.">
+<link rel="canonical" href="https://sunproenergyltd.com/pages/about.html">
+<link rel="icon" href="../assets/logo.jpg">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a href="../index.html" class="brand">
+      <img src="../assets/logo.jpg" alt="SunPro Energy Ltd. logo">
+      <span class="brand-name">SunPro<span>Energy Ltd.</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="questionnaire.html">Get a Free Quote</a>
+      <a href="maintenance.html">Maintenance</a>
+      <a href="partnership.html">Partnership</a>
+      <a href="about.html">About &amp; Contact</a>
+    </nav>
+    <div class="nav-cta"><a href="questionnaire.html" class="btn btn-primary btn-sm">Get Free Quote</a></div>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb">HOME / ABOUT &amp; CONTACT</div>
+    <h1>Powering Port Harcourt, one home at a time.</h1>
+    <p>SunPro Energy Ltd. supplies, delivers and installs solar inverters, lithium batteries, panels and complete power systems from itel, LG and Cworth — sized to what our customers actually run.</p>
+  </div>
+</div>
+
+<section class="bg-paper">
+  <div class="container grid grid-2">
+    <div>
+      <h2>Visit or reach us</h2>
+      <div class="card" style="margin-bottom:16px;">
+        <h3>📍 Address</h3>
+        <p data-address>210 Ikwerre Road, Port Harcourt, Rivers State, Nigeria</p>
+      </div>
+      <div class="card" style="margin-bottom:16px;">
+        <h3>📞 Phone &amp; WhatsApp</h3>
+        <p><a data-phone-href href="#" data-phone>0810 310 4270</a></p>
+      </div>
+      <div class="card" style="margin-bottom:16px;">
+        <h3>✉️ Email</h3>
+        <p><a data-email-href href="#" data-email>info@sunproenergyltd.com</a></p>
+      </div>
+      <div class="card">
+        <h3>🕘 Hours</h3>
+        <p data-hours>Mon – Sat, 8:00am – 6:00pm</p>
+      </div>
+    </div>
+    <div class="form-card">
+      <h3>Send us a message</h3>
+      <form id="contactForm">
+        <div class="field"><label>Full name</label><input type="text" name="name" required></div>
+        <div class="field"><label>Phone / Email</label><input type="text" name="contact" required></div>
+        <div class="field"><label>Message</label><textarea name="message" rows="5" required></textarea></div>
+        <button class="btn btn-primary btn-block" type="submit">Send Message</button>
+      </form>
+      <div id="contactDone" style="display:none;text-align:center;">
+        <h3>Message received ✅</h3>
+        <p class="small">We'll respond shortly — or reach us directly on WhatsApp.</p>
+        <a data-wa-href href="#" class="btn btn-whatsapp btn-block">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© <span data-year></span> SunPro Energy Ltd. All rights reserved.</span>
+      <a href="../index.html">Back to home</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/config.js"></script>
+<script src="../js/lead-store.js"></script>
+<script src="../js/main.js"></script>
+<script>
+  document.getElementById("contactForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    LeadStore.save({ type: "General Enquiry", ...data });
+    e.target.style.display = "none";
+    document.getElementById("contactDone").style.display = "block";
+  });
+</script>
+</body>
+</html>
