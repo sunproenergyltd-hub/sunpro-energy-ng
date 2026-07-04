@@ -1,43 +1,163 @@
-/* =========================================================
-   SUNPRO ENERGY — SITE CONFIG
-   Edit this file to update contact details or plug in real
-   backend services. No other file needs to change.
-   ========================================================= */
-const SUNPRO_CONFIG = {
-  businessName: "SunPro Energy Ltd.",
-  phoneDisplay: "0810 310 4270",
-  phoneIntl: "2348103104270",           // used for tel: and wa.me links — no + or leading 0
-  email: "info@sunproenergyltd.com",     // placeholder — update once a company inbox exists
-  address: "210 Ikwerre Road, Port Harcourt, Rivers State, Nigeria",
-  hours: "Mon – Sat, 8:00am – 6:00pm",
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SunPro Energy — Admin: Leads</title>
+<link rel="icon" href="assets/logo.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1B4B5A; --navy-deep:#0F2E38; --gold:#FFC93C; --orange:#FF7A30; --red:#E63946; --cream:#FDFBF7;
+    --line: rgba(27,75,90,0.14); --sun-gradient: linear-gradient(135deg, var(--gold) 0%, var(--orange) 55%, var(--red) 100%);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy-deep);}
+  h1,h2{font-family:'Space Grotesk',sans-serif;}
+  header{display:flex; align-items:center; justify-content:space-between; padding:20px 5vw; border-bottom:1px solid var(--line); background:#fff;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px;}
+  .brand img{width:34px; height:34px; object-fit:contain; border-radius:6px;}
+  .brand span.red{color:var(--red);}
 
-  // ---- Lead delivery -------------------------------------------------
-  // Leads (quote requests, questionnaire answers, maintenance & partnership
-  // requests) are always saved locally so the Admin panel works immediately
-  // out of the box. To also receive them by email / in a shared Google
-  // Sheet from every visitor's device (not just this browser), set one of
-  // these to a real endpoint:
-  //
-  //  1) Formspree (easiest): create a free form at formspree.io, then set
-  //     formEndpoint to "https://formspree.io/f/xxxxxxx"
-  //  2) Google Sheets via Apps Script Web App: paste the deployed URL into
-  //     sheetsWebhook.
-  formEndpoint: "",        // e.g. "https://formspree.io/f/xxxxxxx"
-  sheetsWebhook: "",       // e.g. "https://script.google.com/macros/s/xxxx/exec"
+  #gate{max-width:380px; margin:14vh auto; text-align:center; padding:0 20px;}
+  #gate h1{font-size:1.5rem; margin-bottom:10px;}
+  #gate p{color:#5a7078; font-size:14px; margin-bottom:24px;}
+  #gate input{width:100%; padding:13px 16px; border-radius:10px; border:1px solid var(--line); font-size:15px; margin-bottom:14px;}
+  #gate button{width:100%; padding:13px; border:none; border-radius:10px; background:var(--red); color:#fff; font-weight:700; font-size:15px; cursor:pointer;}
+  #gate .err{color:var(--red); font-size:13px; margin-top:10px; display:none;}
 
-  // ---- Live chat -------------------------------------------------------
-  // The floating chat bubble on every page is a lightweight built-in
-  // FAQ + "hand off to WhatsApp" widget (works with zero setup). To use a
-  // full live-agent inbox instead, sign up free at tawk.to, grab your
-  // Property ID + Widget ID and paste them here — main.js will load the
-  // real Tawk.to widget automatically instead of the built-in one.
-  tawkPropertyId: "",      // e.g. "60f1a2b3c4d5e6f7a8b9c0d1"
-  tawkWidgetId: "",        // e.g. "1f5g6h7i8"
+  main{max-width:1100px; margin:0 auto; padding:6vh 5vw; display:none;}
+  .toolbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; flex-wrap:wrap; gap:12px;}
+  .toolbar h2{font-size:1.6rem;}
+  .toolbar .count{font-family:'IBM Plex Mono'; font-size:13px; color:var(--red); background:#fff; border:1px solid var(--line); padding:6px 14px; border-radius:100px;}
+  .toolbar-actions{display:flex; gap:10px;}
+  .btn{padding:10px 18px; border-radius:100px; font-size:13.5px; font-weight:600; border:1px solid var(--line); background:#fff; color:var(--navy); cursor:pointer; text-decoration:none;}
+  .btn.danger{color:var(--red); border-color:rgba(230,57,70,0.3);}
+  .btn.primary{background:var(--navy-deep); color:#fff; border-color:transparent;}
 
-  // ---- Admin ------------------------------------------------------------
-  // Simple client-side gate for the /admin.html demo dashboard. This is
-  // NOT secure for sensitive data — it only hides the page from casual
-  // visitors. Change this password, and see README.md for how to add
-  // real authentication before storing sensitive customer data long-term.
-  adminPassword: "sunpro2026"
-};
+  .empty{text-align:center; padding:10vh 20px; color:#5a7078;}
+  .empty .sun-icon{width:60px; height:60px; border-radius:50%; background:var(--sun-gradient); margin:0 auto 20px; opacity:0.5;}
+
+  .lead-card{background:#fff; border:1px solid var(--line); border-radius:16px; padding:24px 26px; margin-bottom:16px;}
+  .lead-top{display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:16px;}
+  .lead-top h3{font-size:1.1rem;}
+  .lead-top .date{font-family:'IBM Plex Mono'; font-size:11.5px; color:#7d9498;}
+  .lead-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:14px;}
+  .lead-item label{display:block; font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:#7d9498; margin-bottom:4px;}
+  .lead-item div{font-size:14px; color:var(--navy-deep); word-break:break-word;}
+  .lead-item.full{grid-column:1/-1;}
+  .note{background:rgba(255,201,60,0.12); border:1px solid rgba(255,201,60,0.3); border-radius:12px; padding:14px 18px; font-size:13px; color:#6b5416; margin-bottom:28px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand"><img src="assets/logo.jpg" alt="SunPro logo"> SunPro<span class="red">Energy</span> — Admin</div>
+  <a class="btn" href="index.html">← Back to site</a>
+</header>
+
+<div id="gate">
+  <h1>Admin access</h1>
+  <p>Enter the admin passcode to view submitted leads.</p>
+  <input type="password" id="passInput" placeholder="Passcode">
+  <button onclick="tryUnlock()">Unlock</button>
+  <div class="err" id="gateErr">Incorrect passcode. Try again.</div>
+</div>
+
+<main id="main">
+  <div class="note">
+    This view shows leads submitted from <strong>this browser only</strong> (stored locally). For every lead sent from any visitor's device, check the inbox connected to your Web3Forms access key — that's your reliable, cross-device record.
+  </div>
+  <div class="toolbar">
+    <h2>Submitted leads</h2>
+    <div class="toolbar-actions">
+      <span class="count" id="leadCount">0 leads</span>
+      <button class="btn" onclick="exportCSV()">Export CSV</button>
+      <button class="btn danger" onclick="clearLeads()">Clear all</button>
+    </div>
+  </div>
+  <div id="leadList"></div>
+</main>
+
+<script>
+  const PASSCODE = "Bernadine22_"; // change this to your own passcode
+
+  function tryUnlock(){
+    const val = document.getElementById('passInput').value;
+    if(val === PASSCODE){
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+      sessionStorage.setItem('sunpro_admin_ok','1');
+      renderLeads();
+    } else {
+      document.getElementById('gateErr').style.display = 'block';
+    }
+  }
+  document.getElementById('passInput').addEventListener('keydown', e=>{ if(e.key==='Enter') tryUnlock(); });
+
+  if(sessionStorage.getItem('sunpro_admin_ok') === '1'){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+  }
+
+  function getLeads(){
+    try{ return JSON.parse(localStorage.getItem('sunpro_leads') || '[]'); }
+    catch(e){ return []; }
+  }
+
+  const fieldLabels = {
+    name:"Full name", phone:"Phone", email:"Email", location:"Location",
+    propertyType:"Property type", monthlyBill:"Monthly bill (₦)", fuelSpend:"Fuel spend (₦)",
+    goal:"Solar goal", roofSpace:"Roof/land space", budget:"Budget range", notes:"Notes"
+  };
+
+  function renderLeads(){
+    const leads = getLeads();
+    document.getElementById('leadCount').textContent = leads.length + (leads.length===1?' lead':' leads');
+    const list = document.getElementById('leadList');
+    if(leads.length===0){
+      list.innerHTML = `<div class="empty"><div class="sun-icon"></div><p>No leads yet. Once someone submits the waitlist form on this browser, they'll show up here.</p></div>`;
+      return;
+    }
+    list.innerHTML = leads.map(lead=>{
+      const date = lead.submittedAt ? new Date(lead.submittedAt).toLocaleString() : '';
+      const items = Object.keys(fieldLabels).map(key=>{
+        const val = lead[key] || '—';
+        const full = key==='notes' ? ' full' : '';
+        return `<div class="lead-item${full}"><label>${fieldLabels[key]}</label><div>${escapeHtml(val)}</div></div>`;
+      }).join('');
+      return `<div class="lead-card">
+        <div class="lead-top"><h3>${escapeHtml(lead.name||'Unnamed lead')}</h3><span class="date">${date}</span></div>
+        <div class="lead-grid">${items}</div>
+      </div>`;
+    }).join('');
+  }
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+  }
+
+  function clearLeads(){
+    if(confirm('Delete all locally stored leads? This cannot be undone.')){
+      localStorage.removeItem('sunpro_leads');
+      renderLeads();
+    }
+  }
+
+  function exportCSV(){
+    const leads = getLeads();
+    if(leads.length===0){ alert('No leads to export yet.'); return; }
+    const cols = ['submittedAt', ...Object.keys(fieldLabels)];
+    const rows = [cols.join(',')];
+    leads.forEach(lead=>{
+      rows.push(cols.map(c => `"${String(lead[c]||'').replace(/"/g,'""')}"`).join(','));
+    });
+    const blob = new Blob([rows.join('\n')], {type:'text/csv'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'sunpro-leads.csv';
+    a.click();
+  }
+</script>
+</body>
+</html>
