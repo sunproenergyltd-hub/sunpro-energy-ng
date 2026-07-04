@@ -3,20 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SunPro Energy Ltd. — Get Your Free Solar Estimate</title>
+<title>SunPro Energy Ltd. — Smart Energy. Brighter Future.</title>
+<meta name="description" content="Reliable, affordable, sustainable solar inverter solutions for Nigerian homes and businesses. Join the SunPro Energy waitlist and get your free solar estimate.">
 <link rel="icon" href="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#1B4B5A;
-    --navy-deep:#0F2E38;
+    --navy:#0E3A52;
+    --navy-deep:#0A2436;
+    --navy-mid:#123F58;
     --gold:#FFC93C;
-    --orange:#FF7A30;
+    --orange:#FF7A1E;
+    --orange-deep:#F0590A;
     --red:#E63946;
     --cream:#FDFBF7;
-    --line: rgba(27,75,90,0.14);
-    --sun-gradient: linear-gradient(135deg, var(--gold) 0%, var(--orange) 55%, var(--red) 100%);
+    --line: rgba(14,58,82,0.14);
+    --sun-gradient: linear-gradient(135deg, var(--gold) 0%, var(--orange) 55%, var(--orange-deep) 100%);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -24,69 +27,91 @@
   h1,h2,h3{font-family:'Space Grotesk', sans-serif; letter-spacing:-0.02em;}
   .mono{font-family:'IBM Plex Mono', monospace;}
   img{max-width:100%; display:block;}
+  a{color:inherit;}
+  section{padding:8vh 6vw;}
+  .section-head{max-width:660px; margin:0 auto 46px; text-align:center;}
+  .section-head .eyebrow{font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); margin-bottom:12px; display:block; font-weight:500;}
+  .section-head h2{font-size:clamp(1.7rem,3vw,2.5rem); color:var(--navy-deep);}
+  .section-head p{margin-top:14px; color:#4d6373; line-height:1.6;}
 
   /* ---------- NAV ---------- */
   nav{
     position:sticky; top:0; z-index:50;
     display:flex; align-items:center; justify-content:space-between;
     padding:14px 6vw;
-    background:rgba(253,251,247,0.9);
+    background:rgba(253,251,247,0.92);
     backdrop-filter: blur(10px);
     border-bottom:1px solid var(--line);
   }
-  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:19px; color:var(--navy);}
-  .brand img{width:42px; height:42px; object-fit:contain;}
-  .brand span.red{color:var(--red);}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:19px; color:var(--navy-deep);}
+  .brand img{width:40px; height:40px; object-fit:contain; border-radius:8px;}
+  .brand span.orange{color:var(--orange-deep);}
+  .nav-links{display:flex; align-items:center; gap:30px;}
+  .nav-links a.nav-link{font-size:14.5px; font-weight:600; text-decoration:none; color:var(--navy); padding:6px 2px; border-bottom:2px solid transparent; transition:border-color .2s, color .2s;}
+  .nav-links a.nav-link:hover, .nav-links a.nav-link.active{color:var(--orange-deep); border-color:var(--orange-deep);}
   nav a.cta{
-    background:var(--navy); color:var(--cream); padding:10px 20px; border-radius:100px;
-    font-weight:600; font-size:14px; text-decoration:none; transition:transform .2s, background .2s;
+    background:var(--sun-gradient); color:var(--navy-deep); padding:11px 22px; border-radius:100px;
+    font-weight:700; font-size:14px; text-decoration:none; transition:transform .2s, box-shadow .2s;
+    box-shadow:0 8px 18px rgba(255,122,30,0.28);
   }
-  nav a.cta:hover{background:var(--red); transform:translateY(-1px);}
+  nav a.cta:hover{transform:translateY(-2px); box-shadow:0 12px 24px rgba(255,122,30,0.36);}
+  .nav-toggle{display:none; background:none; border:none; font-size:26px; color:var(--navy-deep); cursor:pointer;}
 
   /* ---------- HERO ---------- */
   .hero{
-    position:relative; padding:9vh 6vw 8vh;
+    position:relative; padding:8vh 6vw 8vh;
     display:grid; grid-template-columns:1.05fr 0.95fr; gap:44px; align-items:center;
     overflow:hidden;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(255,201,60,0.22), transparent 45%),
+      linear-gradient(180deg, #FFF9EE 0%, var(--cream) 55%);
   }
   .hero-copy .eyebrow{
     font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
-    color:var(--red); font-weight:500; margin-bottom:18px; display:flex; align-items:center; gap:8px;
+    color:var(--orange-deep); font-weight:600; margin-bottom:18px; display:flex; align-items:center; gap:8px;
   }
-  .hero-copy .eyebrow::before{content:''; width:22px; height:2px; background:var(--red); display:inline-block;}
-  .hero-copy h1{font-size:clamp(2.3rem, 4.6vw, 3.8rem); line-height:1.04; color:var(--navy-deep); font-weight:700;}
+  .hero-copy .eyebrow::before{content:''; width:22px; height:2px; background:var(--orange-deep); display:inline-block;}
+  .hero-copy h1{font-size:clamp(2.3rem, 4.6vw, 3.9rem); line-height:1.05; color:var(--navy-deep); font-weight:700;}
   .hero-copy h1 em{font-style:normal; background:var(--sun-gradient); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  .hero-copy p.lead{margin-top:22px; font-size:1.08rem; line-height:1.6; color:#3c5560; max-width:46ch;}
+  .hero-copy p.tagline{margin-top:14px; font-size:1.2rem; font-weight:600; color:var(--navy);}
+  .hero-copy p.lead{margin-top:16px; font-size:1.05rem; line-height:1.6; color:#3c5560; max-width:48ch;}
+
+  .hero-features{display:flex; gap:26px; margin-top:32px; flex-wrap:wrap;}
+  .hero-feature{display:flex; align-items:flex-start; gap:12px; max-width:190px;}
+  .hero-feature .ico{width:44px; height:44px; min-width:44px; border-radius:50%; background:var(--sun-gradient); display:flex; align-items:center; justify-content:center; color:#fff; font-size:19px;}
+  .hero-feature b{display:block; font-size:14px; color:var(--navy-deep); margin-bottom:2px;}
+  .hero-feature span{font-size:12.5px; color:#5a7078; line-height:1.4;}
+
   .hero-actions{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;}
   .btn-primary{
-    background:var(--red); color:#fff; padding:15px 28px; border-radius:100px; font-weight:600;
-    text-decoration:none; font-size:15px; box-shadow:0 10px 24px rgba(230,57,70,0.28);
+    background:var(--navy-deep); color:#fff; padding:15px 28px; border-radius:100px; font-weight:700;
+    text-decoration:none; font-size:15px; box-shadow:0 10px 24px rgba(10,36,54,0.25);
     transition:transform .2s, box-shadow .2s; border:none; cursor:pointer;
   }
-  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(230,57,70,0.36);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(10,36,54,0.32);}
+  .btn-accent{
+    background:var(--sun-gradient); color:var(--navy-deep); padding:15px 28px; border-radius:100px; font-weight:700;
+    text-decoration:none; font-size:15px; box-shadow:0 10px 24px rgba(255,122,30,0.3);
+    transition:transform .2s, box-shadow .2s; border:none; cursor:pointer;
+  }
+  .btn-accent:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(255,122,30,0.4);}
   .btn-ghost{
     padding:15px 24px; border-radius:100px; font-weight:600; font-size:15px; color:var(--navy);
-    border:1.5px solid var(--line); text-decoration:none; transition:border-color .2s, background .2s;
+    border:1.5px solid var(--line); text-decoration:none; transition:border-color .2s, background .2s; background:#fff;
   }
-  .btn-ghost:hover{border-color:var(--navy); background:rgba(27,75,90,0.05);}
-  .hero-stats{display:flex; gap:30px; margin-top:46px;}
-  .hero-stats div{border-left:2px solid var(--line); padding-left:14px;}
-  .hero-stats b{display:block; font-family:'Space Grotesk'; font-size:1.5rem; color:var(--navy-deep);}
-  .hero-stats span{font-size:12.5px; color:#66808a;}
+  .btn-ghost:hover{border-color:var(--navy); background:rgba(14,58,82,0.05);}
 
-  /* ---------- HERO PRODUCT SLIDER ---------- */
+  /* ---------- HERO SLIDER ---------- */
   .hero-slider{
     position:relative; border-radius:26px; overflow:hidden; aspect-ratio:4/5;
-    background:radial-gradient(circle at 70% 30%, rgba(255,201,60,0.55), rgba(230,57,70,0.15) 55%, transparent 75%), var(--navy-deep);
+    background:radial-gradient(circle at 70% 30%, rgba(255,201,60,0.55), rgba(255,122,30,0.15) 55%, transparent 75%), var(--navy-deep);
+    box-shadow:0 30px 60px rgba(10,36,54,0.25);
   }
-  .slide{
-    position:absolute; inset:0; opacity:0; transition:opacity .8s ease;
-    display:flex; align-items:center; justify-content:center;
-  }
+  .slide{position:absolute; inset:0; opacity:0; transition:opacity .8s ease; display:flex; align-items:center; justify-content:center;}
   .slide.active{opacity:1;}
   .slide img{width:100%; height:100%; object-fit:cover;}
   .slide-badge{
-    position:absolute; bottom:18px; left:18px; background:rgba(15,46,56,0.75); backdrop-filter:blur(6px);
+    position:absolute; bottom:18px; left:18px; background:rgba(10,36,54,0.78); backdrop-filter:blur(6px);
     color:#fff; padding:9px 16px; border-radius:100px; font-size:12.5px; font-family:'IBM Plex Mono';
     display:flex; align-items:center; gap:8px;
   }
@@ -95,62 +120,89 @@
   .slider-dots span{width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.35); cursor:pointer; transition:background .2s, transform .2s;}
   .slider-dots span.active{background:var(--gold); transform:scale(1.2);}
 
-  /* ---------- SECTION SHELL ---------- */
-  section{padding:9vh 6vw;}
-  .section-head{max-width:640px; margin:0 auto 50px; text-align:center;}
-  .section-head .eyebrow{font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--red); margin-bottom:12px; display:block;}
-  .section-head h2{font-size:clamp(1.7rem,3vw,2.4rem); color:var(--navy-deep);}
-  .section-head p{margin-top:14px; color:#5a7078; line-height:1.6;}
+  /* ---------- RELY-ON BAND ---------- */
+  .rely-band{background:var(--sun-gradient); padding:8vh 6vw; display:grid; grid-template-columns:0.85fr 1.15fr; gap:40px; align-items:center;}
+  .rely-copy h2{color:var(--navy-deep); font-size:clamp(1.8rem,3vw,2.4rem); line-height:1.12;}
+  .rely-copy p{margin-top:16px; color:rgba(15,20,10,0.72); line-height:1.6; font-size:15px; max-width:40ch;}
+  .rely-copy .btn-primary{margin-top:26px;}
+  .rely-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:18px;}
+  .rely-card{background:#fff; border-radius:18px; padding:26px 22px; text-align:center; box-shadow:0 14px 30px rgba(10,36,54,0.12);}
+  .rely-card .ico{width:52px; height:52px; margin:0 auto 14px; border-radius:14px; background:rgba(14,58,82,0.08); display:flex; align-items:center; justify-content:center; color:var(--navy-deep); font-size:22px;}
+  .rely-card h3{font-size:1.02rem; color:var(--navy-deep); margin-bottom:6px;}
+  .rely-card p{font-size:13px; color:#5a7078; line-height:1.5;}
+
+  /* ---------- PRODUCTS ---------- */
+  .products{background:var(--navy-deep); color:#fff;}
+  .products .section-head .eyebrow{color:var(--gold);}
+  .products .section-head h2{color:#fff;}
+  .products .section-head p{color:#9fb8bd;}
+  .product-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:22px; max-width:1180px; margin:0 auto;}
+  .product-card{background:var(--navy-mid); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:22px; display:flex; flex-direction:column;}
+  .product-thumb{border-radius:14px; overflow:hidden; aspect-ratio:1/1; background:rgba(255,255,255,0.04); margin-bottom:18px;}
+  .product-thumb img{width:100%; height:100%; object-fit:cover;}
+  .product-card h3{font-size:1.05rem; margin-bottom:6px;}
+  .product-card p{font-size:13px; color:#a9c0c4; line-height:1.5; flex-grow:1; margin-bottom:18px;}
+  .product-card a{
+    display:inline-block; text-align:center; padding:10px 0; border-radius:100px; border:1.5px solid var(--orange);
+    color:var(--gold); font-weight:600; font-size:13.5px; text-decoration:none; transition:background .2s, color .2s;
+  }
+  .product-card a:hover{background:var(--sun-gradient); color:var(--navy-deep); border-color:transparent;}
 
   /* ---------- HOW IT WORKS ---------- */
-  .steps{max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .steps{max-width:1020px; margin:0 auto; display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
   .step{background:#fff; border:1px solid var(--line); border-radius:18px; padding:30px 26px; position:relative; overflow:hidden;}
-  .step .num{font-family:'IBM Plex Mono'; font-size:13px; color:var(--red); font-weight:500; margin-bottom:16px; display:block;}
+  .step .num{font-family:'IBM Plex Mono'; font-size:13px; color:var(--orange-deep); font-weight:500; margin-bottom:16px; display:block;}
   .step h3{font-size:1.15rem; color:var(--navy-deep); margin-bottom:10px;}
   .step p{font-size:14.5px; color:#5a7078; line-height:1.55;}
-  .step::after{content:''; position:absolute; top:-30px; right:-30px; width:90px; height:90px; border-radius:50%; background:var(--sun-gradient); opacity:0.08;}
+  .step::after{content:''; position:absolute; top:-30px; right:-30px; width:90px; height:90px; border-radius:50%; background:var(--sun-gradient); opacity:0.1;}
 
-  /* ---------- FOUNDER ---------- */
-  .founder-wrap{
-    max-width:1000px; margin:0 auto; background:#fff; border:1px solid var(--line); border-radius:26px;
-    display:grid; grid-template-columns:0.8fr 1.2fr; overflow:hidden;
-  }
-  .founder-photo{position:relative; background:var(--navy-deep); min-height:380px;}
-  .founder-photo img{width:100%; height:100%; object-fit:cover; object-position:top center;}
-  .founder-copy{padding:44px 42px; display:flex; flex-direction:column; justify-content:center;}
-  .founder-copy .eyebrow{font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--red); margin-bottom:14px; display:block;}
-  .founder-copy h3{font-size:1.6rem; margin-bottom:6px; color:var(--navy-deep);}
-  .founder-copy .role{color:#66808a; font-size:13.5px; margin-bottom:20px;}
-  .founder-copy p{color:#3c5560; line-height:1.65; font-size:15px;}
+  /* ---------- ABOUT ---------- */
+  .about-wrap{max-width:1180px; margin:0 auto; display:grid; grid-template-columns:0.75fr 1.25fr; gap:0; border-radius:26px; overflow:hidden; box-shadow:0 20px 50px rgba(10,36,54,0.1);}
+  .about-photo{position:relative; background:var(--navy-deep); min-height:380px;}
+  .about-photo img{width:100%; height:100%; object-fit:cover; object-position:top center;}
+  .about-copy{background:#fff; padding:48px 44px; display:flex; flex-direction:column; justify-content:center;}
+  .about-copy .eyebrow{font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--orange-deep); margin-bottom:14px; display:block;}
+  .about-copy h3{font-size:1.7rem; margin-bottom:6px; color:var(--navy-deep);}
+  .about-copy .role{color:#66808a; font-size:13.5px; margin-bottom:18px;}
+  .about-copy p{color:#3c5560; line-height:1.65; font-size:15px; margin-bottom:22px;}
+  .about-checks{display:flex; flex-direction:column; gap:14px;}
+  .about-check{display:flex; align-items:flex-start; gap:12px;}
+  .about-check .tick{min-width:22px; height:22px; border-radius:50%; background:var(--sun-gradient); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; margin-top:2px;}
+  .about-check b{display:block; font-size:14.5px; color:var(--navy-deep);}
+  .about-check span{font-size:13px; color:#5a7078;}
 
   /* ---------- VIDEO ---------- */
-  .video-wrap{max-width:900px; margin:0 auto; border-radius:26px; overflow:hidden; background:var(--navy-deep); border:1px solid var(--line);}
+  .video-wrap{max-width:900px; margin:0 auto; border-radius:26px; overflow:hidden; background:var(--navy-deep); border:1px solid var(--line); box-shadow:0 20px 50px rgba(10,36,54,0.12);}
   .video-wrap video{width:100%; display:block; max-height:520px; background:#000;}
 
-  /* ---------- FORM ---------- */
-  .form-wrap{max-width:760px; margin:0 auto; background:var(--navy-deep); border-radius:26px; padding:52px 48px; color:#fff; position:relative; overflow:hidden;}
+  /* ---------- ESTIMATE / WAITLIST FORM ---------- */
+  #waitlist{background:linear-gradient(180deg, var(--navy-deep) 0%, var(--navy) 100%);}
+  #waitlist .section-head .eyebrow{color:var(--gold);}
+  #waitlist .section-head h2{color:#fff;}
+  #waitlist .section-head p{color:#9fb8bd;}
+  .form-wrap{max-width:800px; margin:0 auto; background:var(--navy-mid); border-radius:26px; padding:52px 48px; color:#fff; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.06);}
   .form-wrap::before{content:''; position:absolute; top:-120px; right:-120px; width:320px; height:320px; border-radius:50%; background:var(--sun-gradient); opacity:0.18; filter:blur(6px);}
-  .form-wrap h2{color:#fff; font-size:1.9rem; margin-bottom:10px;}
-  .form-wrap > p{color:#b9cdd2; margin-bottom:34px; font-size:14.5px; max-width:52ch;}
-  .progress-track{height:6px; width:100%; background:rgba(255,255,255,0.12); border-radius:100px; margin-bottom:36px; overflow:hidden;}
+  .form-wrap h3{color:#fff; font-size:1.5rem; margin-bottom:10px; font-family:'Space Grotesk';}
+  .form-wrap > p.form-sub{color:#b9cdd2; margin-bottom:30px; font-size:14.5px; max-width:52ch;}
+  .progress-track{height:6px; width:100%; background:rgba(255,255,255,0.12); border-radius:100px; margin-bottom:34px; overflow:hidden;}
   .progress-fill{height:100%; width:0%; background:var(--sun-gradient); border-radius:100px; transition:width .5s ease;}
-  .field{margin-bottom:22px; position:relative; z-index:1;}
-  .field label{display:block; font-size:12.5px; font-family:'IBM Plex Mono'; letter-spacing:.03em; color:#9fb8bd; margin-bottom:8px;}
+  .field{margin-bottom:20px; position:relative; z-index:1;}
+  .field label{display:block; font-size:12px; font-family:'IBM Plex Mono'; letter-spacing:.03em; color:#9fb8bd; margin-bottom:8px;}
   .field input, .field select, .field textarea{
     width:100%; padding:13px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.16);
-    background:rgba(255,255,255,0.05); color:#fff; font-family:'Inter'; font-size:15px; outline:none;
+    background:rgba(255,255,255,0.06); color:#fff; font-family:'Inter'; font-size:15px; outline:none;
     transition:border-color .2s, background .2s;
   }
   .field input::placeholder, .field textarea::placeholder{color:#7d9498;}
-  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--gold); background:rgba(255,255,255,0.08);}
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--gold); background:rgba(255,255,255,0.09);}
   .field select option{color:#000;}
   .row-2{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
   @media(max-width:640px){.row-2{grid-template-columns:1fr;}}
   .chip-group{display:flex; flex-wrap:wrap; gap:10px;}
   .chip{padding:9px 16px; border-radius:100px; border:1px solid rgba(255,255,255,0.18); font-size:13.5px; cursor:pointer; color:#d6e4e6; transition:all .2s; user-select:none;}
   .chip.active{background:var(--sun-gradient); color:var(--navy-deep); font-weight:600; border-color:transparent;}
-  .submit-btn{margin-top:12px; width:100%; padding:16px; border:none; border-radius:12px; font-weight:700; font-size:15.5px; background:var(--red); color:#fff; cursor:pointer; transition:transform .2s, background .2s;}
-  .submit-btn:hover{transform:translateY(-2px); background:#ff4c5c;}
+  .submit-btn{margin-top:10px; width:100%; padding:16px; border:none; border-radius:12px; font-weight:700; font-size:15.5px; background:var(--sun-gradient); color:var(--navy-deep); cursor:pointer; transition:transform .2s, box-shadow .2s;}
+  .submit-btn:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(255,122,30,0.35);}
   .submit-btn:disabled{opacity:0.5; cursor:not-allowed; transform:none;}
   .fine-print{margin-top:16px; font-size:12px; color:#7d9498; text-align:center;}
   .success-panel{display:none; text-align:center; padding:30px 10px; position:relative; z-index:1;}
@@ -159,44 +211,104 @@
   .success-panel p{color:#b9cdd2; font-size:14.5px; max-width:44ch; margin:0 auto;}
 
   /* ---------- FOOTER ---------- */
-  footer{padding:40px 6vw; border-top:1px solid var(--line); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
-  footer .brand{font-size:15px;}
-  footer .foot-meta{text-align:right; font-size:13px; color:#5a7078; line-height:1.6;}
-  footer .foot-meta a{color:var(--navy); text-decoration:none;}
+  footer{background:var(--navy-deep); color:#a9c0c4; padding:0; border-top:1px solid rgba(255,255,255,0.06);}
+  .foot-main{
+    display:grid; grid-template-columns:1.3fr 0.9fr 1fr 1fr; gap:40px;
+    padding:7vh 6vw 5vh; max-width:1280px; margin:0 auto;
+  }
+  .foot-brand .brand{color:#fff; margin-bottom:16px;}
+  .foot-brand .brand img{border-radius:8px;}
+  .foot-brand p{font-size:13.5px; line-height:1.7; color:#8fa8ad; max-width:34ch; margin-bottom:22px;}
+  .foot-social{display:flex; gap:10px;}
+  .foot-social a{
+    width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,0.14);
+    display:flex; align-items:center; justify-content:center; color:#cfe0e4; text-decoration:none;
+    transition:background .2s, border-color .2s, color .2s, transform .2s;
+  }
+  .foot-social a svg{width:16px; height:16px;}
+  .foot-social a:hover{background:var(--sun-gradient); border-color:transparent; color:var(--navy-deep); transform:translateY(-2px);}
+  .foot-col h4{
+    font-family:'IBM Plex Mono'; font-size:11.5px; letter-spacing:.12em; text-transform:uppercase;
+    color:#5f7d84; font-weight:500; margin-bottom:20px;
+  }
+  .foot-col ul{list-style:none; display:flex; flex-direction:column; gap:13px;}
+  .foot-col ul a{color:#c3d7db; text-decoration:none; font-size:14px; transition:color .2s; display:inline-flex; align-items:center; gap:8px;}
+  .foot-col ul a:hover{color:var(--gold);}
+  .foot-col ul li.contact-line{display:flex; align-items:flex-start; gap:10px; font-size:14px; color:#c3d7db; line-height:1.5;}
+  .foot-col ul li.contact-line svg{width:15px; height:15px; margin-top:2px; flex-shrink:0; color:#5f7d84;}
+  .foot-col ul li.contact-line a{color:#c3d7db;}
+  .foot-col ul li.contact-line a:hover{color:var(--gold);}
+  .foot-bottom{
+    display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px;
+    padding:20px 6vw; max-width:1280px; margin:0 auto; font-size:12.5px; color:#5f7d84;
+    border-top:1px solid rgba(255,255,255,0.07);
+  }
+  .foot-bottom a{color:#5f7d84; text-decoration:none;}
+  .foot-bottom a:hover{color:var(--gold);}
 
+  @media(max-width:880px){
+    .foot-main{grid-template-columns:1fr 1fr; gap:36px 24px;}
+  }
+  @media(max-width:560px){
+    .foot-main{grid-template-columns:1fr;}
+    .foot-bottom{flex-direction:column; align-items:flex-start;}
+  }
+
+  @media(max-width:960px){
+    .rely-band{grid-template-columns:1fr;}
+    .rely-grid{grid-template-columns:repeat(2,1fr);}
+    .product-grid{grid-template-columns:repeat(2,1fr);}
+    .about-wrap{grid-template-columns:1fr;}
+    .about-photo{min-height:280px;}
+  }
   @media(max-width:880px){
     .hero{grid-template-columns:1fr; padding-top:5vh;}
     .hero-slider{order:-1; aspect-ratio:16/11;}
     .steps{grid-template-columns:1fr;}
-    .founder-wrap{grid-template-columns:1fr;}
-    .founder-photo{min-height:280px;}
     .form-wrap{padding:36px 24px;}
-    .hero-stats{gap:20px;}
-    footer{flex-direction:column; align-items:flex-start;}
-    footer .foot-meta{text-align:left;}
+    .nav-links{position:fixed; inset:64px 0 0 0; background:var(--cream); flex-direction:column; padding:30px 8vw; gap:20px; transform:translateX(100%); transition:transform .3s ease; z-index:49;}
+    .nav-links.open{transform:translateX(0);}
+    .nav-toggle{display:block;}
+  }
+  @media(max-width:640px){
+    .rely-grid{grid-template-columns:1fr;}
+    .product-grid{grid-template-columns:1fr;}
+    .foot-top{flex-direction:column; align-items:flex-start;}
   }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="brand"><img src="logo.jpg" alt="SunPro Energy Ltd logo"> SunPro<span class="red">Energy</span></div>
-  <a class="cta" href="#waitlist">Join the Waitlist</a>
+  <div class="brand"><img src="logo.jpg" alt="SunPro Energy Ltd logo"> SunPro<span class="orange">Energy Ltd.</span></div>
+  <div class="nav-links" id="navLinks">
+    <a class="nav-link active" href="#top">Home</a>
+    <a class="nav-link" href="#about">About Us</a>
+    <a class="nav-link" href="#products">Products</a>
+    <a class="nav-link" href="#how">Why Solar</a>
+    <a class="nav-link" href="#video">Services</a>
+    <a class="nav-link" href="#waitlist">Contact</a>
+    <a class="cta" href="#waitlist">Join Waitlist</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">☰</button>
 </nav>
 
-<section class="hero">
+<section class="hero" id="top">
   <div class="hero-copy">
     <div class="eyebrow">Solar &amp; Inverter Solutions for Nigerian Homes &amp; Businesses</div>
-    <h1>Stop feeding <em>NEPA</em> and your generator. <em>Feed off the sun.</em></h1>
-    <p class="lead">Tell us about your home or business in under 3 minutes. Our engineers size your system and email you a free, no-obligation solar estimate — no site visit required to get started.</p>
-    <div class="hero-actions">
-      <a href="#waitlist" class="btn-primary">Get My Free Estimate</a>
-      <a href="#how" class="btn-ghost">How it works</a>
+    <h1>Smart Energy.<br><em>Brighter Future.</em></h1>
+    <p class="tagline">Reliable. Affordable. Sustainable.</p>
+    <p class="lead">Power your home or business with SunPro Energy's advanced solar inverter solutions. Tell us about your power situation and get a free, no-obligation solar estimate — no site visit required to get started.</p>
+
+    <div class="hero-features">
+      <div class="hero-feature"><div class="ico">⚡</div><div><b>Reliable Power</b><span>24/7 electricity you can trust.</span></div></div>
+      <div class="hero-feature"><div class="ico">🌿</div><div><b>Eco-Friendly</b><span>Clean energy for a greener tomorrow.</span></div></div>
+      <div class="hero-feature"><div class="ico">₦</div><div><b>Cost Savings</b><span>Lower bills, higher value.</span></div></div>
     </div>
-    <div class="hero-stats">
-      <div><b>24/7</b><span>Power, no fuel runs</span></div>
-      <div><b>~48hrs</b><span>To get your estimate</span></div>
-      <div><b>₦0</b><span>Cost to join waitlist</span></div>
+
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Explore Products</a>
+      <a href="#waitlist" class="btn-accent">Join Waitlist</a>
     </div>
   </div>
 
@@ -206,6 +318,55 @@
     <div class="slide"><img src="product-inverter-lineup.jpg" alt="SunPro inverter lineup"><div class="slide-badge">Our inverter range</div></div>
     <div class="slide"><img src="flyer-inverter-service.jpg" alt="SunPro installation and repair services"><div class="slide-badge">Sales · Installation · Repair</div></div>
     <div class="slide"><img src="flyer-what-is-inverter.jpg" alt="How a SunPro inverter converts DC to AC power"><div class="slide-badge">DC → Inverter → AC power</div></div>
+  </div>
+</section>
+
+<section class="rely-band">
+  <div class="rely-copy">
+    <span class="eyebrow" style="color:rgba(15,20,10,0.65);">Why choose SunPro</span>
+    <h2>Power You Can Rely On</h2>
+    <p>Our solar inverters deliver stable, efficient, and intelligent energy conversion for homes and businesses of all sizes.</p>
+    <a href="#products" class="btn-primary">Learn More</a>
+  </div>
+  <div class="rely-grid">
+    <div class="rely-card"><div class="ico">🛡️</div><h3>Reliable</h3><p>Stable power for your everyday needs.</p></div>
+    <div class="rely-card"><div class="ico">⚡</div><h3>Efficient</h3><p>Maximize energy output and minimize losses.</p></div>
+    <div class="rely-card"><div class="ico">🔋</div><h3>Durable</h3><p>Built to last with premium components.</p></div>
+    <div class="rely-card"><div class="ico">⚙️</div><h3>Smart</h3><p>Intelligent monitoring and protection.</p></div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="section-head">
+    <span class="eyebrow">Our Products</span>
+    <h2>Everything you need, in one lineup</h2>
+    <p>From hybrid inverters to full solar accessory kits — sized and specified for Nigerian power conditions.</p>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-thumb"><img src="product-inverter-lineup.jpg" alt="SunPro hybrid inverter"></div>
+      <h3>Hybrid Inverters</h3>
+      <p>Smart energy management for homes and businesses.</p>
+      <a href="#waitlist">View Product</a>
+    </div>
+    <div class="product-card">
+      <div class="product-thumb"><img src="flyer-inverter-service.jpg" alt="SunPro off-grid inverter"></div>
+      <h3>Off-Grid Inverters</h3>
+      <p>Reliable power in remote and off-grid areas.</p>
+      <a href="#waitlist">View Product</a>
+    </div>
+    <div class="product-card">
+      <div class="product-thumb"><img src="product-battery-inverter.jpg" alt="SunPro battery system"></div>
+      <h3>Battery Systems</h3>
+      <p>Store energy for backup and maximum savings.</p>
+      <a href="#waitlist">View Product</a>
+    </div>
+    <div class="product-card">
+      <div class="product-thumb"><img src="flyer-what-is-inverter.jpg" alt="SunPro solar accessories"></div>
+      <h3>Solar Accessories</h3>
+      <p>Panels, cables, combiner boxes &amp; more.</p>
+      <a href="#waitlist">View Product</a>
+    </div>
   </div>
 </section>
 
@@ -234,18 +395,23 @@
   </div>
 </section>
 
-<section id="founder">
+<section id="about">
   <div class="section-head">
     <span class="eyebrow">Who's behind SunPro</span>
     <h2>Built by someone who's lived the power problem too</h2>
   </div>
-  <div class="founder-wrap">
-    <div class="founder-photo"><img src="founder.jpg" alt="Ewesi Kenechukwu, Founder of SunPro Energy Ltd"></div>
-    <div class="founder-copy">
-      <span class="eyebrow">Founder</span>
+  <div class="about-wrap">
+    <div class="about-photo"><img src="founder.jpg" alt="Ewesi Kenechukwu, Founder of SunPro Energy Ltd"></div>
+    <div class="about-copy">
+      <span class="eyebrow">About SunPro Energy</span>
       <h3>Ewesi Kenechukwu</h3>
       <div class="role">Founder, SunPro Energy Ltd. — Port Harcourt, Rivers State</div>
-      <p>SunPro Energy Ltd. sells, installs, and repairs high-performance inverter, battery, and solar systems built specifically for Nigerian power conditions. Every estimate we send is checked by our own engineering team before it reaches your inbox — clean energy, smarter future.</p>
+      <p>We are dedicated to providing top-quality solar solutions that empower homes and businesses across Nigeria. SunPro Energy sells, installs, and repairs high-performance inverter, battery, and solar systems — every estimate we send is checked by our own engineering team before it reaches your inbox.</p>
+      <div class="about-checks">
+        <div class="about-check"><div class="tick">✓</div><div><b>Expert Installation</b><span>Professional &amp; certified team</span></div></div>
+        <div class="about-check"><div class="tick">✓</div><div><b>After-Sales Support</b><span>We're here for you always</span></div></div>
+        <div class="about-check"><div class="tick">✓</div><div><b>Affordable Solutions</b><span>Quality energy, fair prices</span></div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -264,12 +430,17 @@
 </section>
 
 <section id="waitlist">
+  <div class="section-head">
+    <span class="eyebrow">Join Our Waitlist</span>
+    <h2>Get your free solar estimate</h2>
+    <p>Be the first to get updates on our latest products, promotions, and solar tips — and receive a system sized specifically for your home or business.</p>
+  </div>
   <div class="form-wrap">
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
 
     <form id="leadForm">
-      <h2>Get your free estimate</h2>
-      <p>Fields marked with an asterisk help us size your system accurately. Everything else just helps us tailor the quote.</p>
+      <h3>Tell us about your power needs</h3>
+      <p class="form-sub">Fields marked with an asterisk help us size your system accurately. Everything else just helps us tailor the quote.</p>
 
       <div class="row-2">
         <div class="field"><label>FULL NAME *</label><input type="text" name="name" placeholder="e.g. Adaeze Okafor" required></div>
@@ -347,14 +518,71 @@
 </section>
 
 <footer>
-  <div class="brand"><img src="logo.jpg" alt="SunPro Energy Ltd logo" style="width:34px;height:34px;"> SunPro<span class="red">Energy Ltd.</span></div>
-  <div class="foot-meta">
-    © 2026 SunPro Energy Ltd. All rights reserved.<br>
-    210 Ikwerre Road, Port Harcourt, Rivers State &nbsp;·&nbsp; <a href="tel:+2348103104270">0810 310 4270</a>
+  <div class="foot-main">
+    <div class="foot-brand">
+      <div class="brand"><img src="logo.jpg" alt="SunPro Energy Ltd logo" style="width:34px;height:34px;"> SunPro<span class="orange">Energy Ltd.</span></div>
+      <p>Reliable, affordable, and sustainable solar inverter solutions — engineered and installed for Nigerian power conditions.</p>
+      <div class="foot-social">
+        <a href="#" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 9h3V6h-3c-1.7 0-3 1.3-3 3v2H9v3h2v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"/></svg>
+        </a>
+        <a href="https://instagram.com/sunproenergyltd" target="_blank" rel="noopener" aria-label="Instagram @sunproenergyltd">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="foot-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#waitlist">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .7 3a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.2-1.3a2 2 0 0 1 2.1-.5c1 .4 2 .6 3 .7a2 2 0 0 1 1.7 2z"/></svg>
+          <span>0907 833 0439<br>0810 310 4270</span>
+        </li>
+        <li class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>210 Ikwerre Road,<br>Port Harcourt, Rivers State</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="foot-col">
+      <h4>Follow</h4>
+      <ul>
+        <li class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6 12 13 2 6"/></svg>
+          <a href="mailto:sunproenergylimited@gmail.com">sunproenergylimited@gmail.com</a>
+        </li>
+        <li class="contact-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+          <a href="https://instagram.com/sunproenergyltd" target="_blank" rel="noopener">@sunproenergyltd</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 SunPro Energy Ltd. All rights reserved.</span>
+    <span>Port Harcourt, Rivers State, Nigeria</span>
   </div>
 </footer>
 
 <script>
+  /* ---- Mobile nav ---- */
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', ()=> navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=> navLinks.classList.remove('open')));
+
   /* ---- Hero slider ---- */
   const slides = document.querySelectorAll('.slide');
   const dotsWrap = document.getElementById('sliderDots');

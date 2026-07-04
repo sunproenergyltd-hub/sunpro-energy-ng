@@ -8,8 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#1B4B5A; --navy-deep:#0F2E38; --gold:#FFC93C; --orange:#FF7A30; --red:#E63946; --cream:#FDFBF7;
-    --line: rgba(27,75,90,0.14); --sun-gradient: linear-gradient(135deg, var(--gold) 0%, var(--orange) 55%, var(--red) 100%);
+    --navy:#0E3A52; --navy-deep:#0A2436; --navy-mid:#123F58; --gold:#FFC93C; --orange:#FF7A1E; --orange-deep:#F0590A; --cream:#FDFBF7;
+    --line: rgba(14,58,82,0.14); --sun-gradient: linear-gradient(135deg, var(--gold) 0%, var(--orange) 55%, var(--orange-deep) 100%);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   body{font-family:'Inter',sans-serif; background:var(--cream); color:var(--navy-deep);}
@@ -17,22 +17,22 @@
   header{display:flex; align-items:center; justify-content:space-between; padding:20px 5vw; border-bottom:1px solid var(--line); background:#fff;}
   .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px;}
   .brand img{width:34px; height:34px; object-fit:contain; border-radius:6px;}
-  .brand span.red{color:var(--red);}
+  .brand span.orange{color:var(--orange-deep);}
 
   #gate{max-width:380px; margin:14vh auto; text-align:center; padding:0 20px;}
   #gate h1{font-size:1.5rem; margin-bottom:10px;}
   #gate p{color:#5a7078; font-size:14px; margin-bottom:24px;}
   #gate input{width:100%; padding:13px 16px; border-radius:10px; border:1px solid var(--line); font-size:15px; margin-bottom:14px;}
-  #gate button{width:100%; padding:13px; border:none; border-radius:10px; background:var(--red); color:#fff; font-weight:700; font-size:15px; cursor:pointer;}
-  #gate .err{color:var(--red); font-size:13px; margin-top:10px; display:none;}
+  #gate button{width:100%; padding:13px; border:none; border-radius:10px; background:var(--sun-gradient); color:var(--navy-deep); font-weight:700; font-size:15px; cursor:pointer;}
+  #gate .err{color:var(--orange-deep); font-size:13px; margin-top:10px; display:none;}
 
   main{max-width:1100px; margin:0 auto; padding:6vh 5vw; display:none;}
   .toolbar{display:flex; justify-content:space-between; align-items:center; margin-bottom:28px; flex-wrap:wrap; gap:12px;}
   .toolbar h2{font-size:1.6rem;}
-  .toolbar .count{font-family:'IBM Plex Mono'; font-size:13px; color:var(--red); background:#fff; border:1px solid var(--line); padding:6px 14px; border-radius:100px;}
+  .toolbar .count{font-family:'IBM Plex Mono'; font-size:13px; color:var(--orange-deep); background:#fff; border:1px solid var(--line); padding:6px 14px; border-radius:100px;}
   .toolbar-actions{display:flex; gap:10px;}
   .btn{padding:10px 18px; border-radius:100px; font-size:13.5px; font-weight:600; border:1px solid var(--line); background:#fff; color:var(--navy); cursor:pointer; text-decoration:none;}
-  .btn.danger{color:var(--red); border-color:rgba(230,57,70,0.3);}
+  .btn.danger{color:var(--orange-deep); border-color:rgba(240,89,10,0.3);}
   .btn.primary{background:var(--navy-deep); color:#fff; border-color:transparent;}
 
   .empty{text-align:center; padding:10vh 20px; color:#5a7078;}
@@ -46,13 +46,13 @@
   .lead-item label{display:block; font-family:'IBM Plex Mono'; font-size:10.5px; letter-spacing:.04em; text-transform:uppercase; color:#7d9498; margin-bottom:4px;}
   .lead-item div{font-size:14px; color:var(--navy-deep); word-break:break-word;}
   .lead-item.full{grid-column:1/-1;}
-  .note{background:rgba(255,201,60,0.12); border:1px solid rgba(255,201,60,0.3); border-radius:12px; padding:14px 18px; font-size:13px; color:#6b5416; margin-bottom:28px;}
+  .note{background:rgba(255,201,60,0.14); border:1px solid rgba(255,201,60,0.35); border-radius:12px; padding:14px 18px; font-size:13px; color:#6b5416; margin-bottom:28px;}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="brand"><img src="logo.jpg" alt="SunPro logo"> SunPro<span class="red">Energy</span> — Admin</div>
+  <div class="brand"><img src="logo.jpg" alt="SunPro logo"> SunPro<span class="orange">Energy</span> — Admin</div>
   <a class="btn" href="index.html">← Back to site</a>
 </header>
 
